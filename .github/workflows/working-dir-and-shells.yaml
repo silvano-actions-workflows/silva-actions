@@ -1,6 +1,8 @@
 name: Working Directory and Shells
 on: [push]
-
+defaults:
+  run:
+    shell: bash
 jobs:
   display-working-directory-info:
     runs-on: ubuntu-latest
@@ -17,6 +19,9 @@ jobs:
         run: pwd
   display-working-directory-info-windows:
     runs-on: windows-latest
+    defaults:
+      run:
+        shell: pwsh
     steps:
       - name: Display working directory and files
         run: |
@@ -25,4 +30,8 @@ jobs:
           echo $GITHUB_SHA
           echo $GITHUB_WORKSPACE
           echo $GITHUB_REPOSITORY
-     
+      - name: Python Shell
+        shell: python
+        run: |
+          import platform
+            print(platform.processor())
