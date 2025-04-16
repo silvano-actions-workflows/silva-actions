@@ -1,8 +1,23 @@
 name: Repository Events
 on:
   push:
+    branches:
+      - main
+      - "feature/*" # matches feature/1, feature/2, etc.
+      - "feature/**" # matches feature/1/1, feature/2/2, etc.
+      - "!feature/3" # excludes feature/3
+    tags:
+      - v1.* # matches v1.0, v1.1, etc.
+      - "!v1.0" # excludes v1.0
+    paths:
+      - "**.js" # matches all .js files in the repository
+      - "!app.js" # excludes app.js
   pull_request:
     types: [opened, synchronize, assigned, reopened]
+    branches:
+      - main
+    paths:
+        - "**.js" # matches all .js files in the repository
   issues: 
     types: [opened]
 
