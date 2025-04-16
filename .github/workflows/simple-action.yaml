@@ -7,7 +7,7 @@ jobs:
     steps:
       - name: Simple JS action
         id: greet
-        uses: actionshello-world-javascript-action@f130c4d10609e28b6c4afd946de263f4caa5060e
+        uses: actions/hello-world-javascript-action@f130c4d10609e28b6c4afd946de263f4caa5060e
         with:
           who-to-greet: 'Ntsika'
       - name: Log Greeting Time
